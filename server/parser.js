@@ -1,16 +1,33 @@
 const KDL = require('./KDL.js');
+const ControllerVersion = require('./parsers/ControllerVersion.js')
+
 let lineReader = require('line-reader');
 Promise = require('bluebird');
 
 let eachLine = Promise.promisify(lineReader.eachLine);
-// const regExp = /\[.*\]/;
+const groupRegExp = /\[.*\]/;
 const configName = 'test.txt'
 let controllers = [];
 
+let flags = {
+    group: undefined,
+    controller: undefined,
+}
+
+let configData = new Map();
+
 async function parseConfig() {
     let controllerIndex = undefined;
-    eachLine(configName, (line) => {
-
+    eachLine(configName, async (line) => {
+    if (groupRegExp.test(line)) {
+        flags.group = await line.replace('[', '').replace(']', '');
+    }
+    switch (flags.group) {
+        case 'Версия пульта C2000': {
+            if (line.includes('Версия'))
+            configData.set(flags.group, ControllerVersion.parse(line));
+        }
+    }
         //TODO validate [group]
         if (line.includes(',   Тип_прибора: ' && ',  Версия: ')) {
             //TODO separator with 2 or 3 spaces via regExp
@@ -31,6 +48,7 @@ async function parseConfig() {
         }
     }).then(()=>{
         controllers[0].showInfo();
+        console.log(configData);
     })
 }
 
