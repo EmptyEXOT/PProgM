@@ -1,5 +1,6 @@
 const KDL = require('./KDL.js');
 const ControllerVersion = require('./parsers/ControllerVersion.js')
+const ControllerList = require('./parsers/ControllersList.js')
 
 let lineReader = require('line-reader');
 Promise = require('bluebird');
@@ -14,18 +15,30 @@ let flags = {
     controller: undefined,
 }
 
-let configData = new Map();
+let configData = {
+    controllerVersion: undefined,
+    controllersList: [],
+    remoteControl: undefined,
+};
 
 async function parseConfig() {
     let controllerIndex = undefined;
     eachLine(configName, async (line) => {
     if (groupRegExp.test(line)) {
-        flags.group = await line.replace('[', '').replace(']', '');
+        flags.group = line
     }
     switch (flags.group) {
-        case 'Версия пульта C2000': {
+        case '[Версия пульта C2000]': {
             if (line.includes('Версия'))
-            configData.set(flags.group, ControllerVersion.parse(line));
+            configData.controllerVersion = ControllerVersion.parse(line);
+        }
+        case '[Типы_приборов]': {
+            if (line.includes('Тип_прибора: ')) {
+                configData.controllersList.push(ControllerList.parse(line));
+            }
+        }
+        case '[Пульт]': {
+
         }
     }
         //TODO validate [group]
@@ -47,7 +60,7 @@ async function parseConfig() {
             controllers[controllerIndex].reader = +line.split(': ')[1];
         }
     }).then(()=>{
-        controllers[0].showInfo();
+        //controllers[0].showInfo();
         console.log(configData);
     })
 }
