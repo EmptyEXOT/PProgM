@@ -1,6 +1,7 @@
 const KDL = require('./KDL.js');
 const ControllerVersion = require('./parsers/ControllerVersion.js')
-const ControllerList = require('./parsers/ControllersList.js')
+const ControllersList = require('./parsers/ControllersList.js')
+const Controllers = require('./parsers/Controllers.js');
 
 let lineReader = require('line-reader');
 Promise = require('bluebird');
@@ -15,10 +16,11 @@ let flags = {
     controller: undefined,
 }
 
-let configData = {
+global.configData = {
     controllerVersion: undefined,
-    controllersList: [],
+    controllersList: new Map(),
     remoteControl: undefined,
+    controllers: new Map(),
 };
 
 async function parseConfig() {
@@ -29,18 +31,28 @@ async function parseConfig() {
     }
     switch (flags.group) {
         case '[Версия пульта C2000]': {
-            if (line.includes('Версия'))
-            configData.controllerVersion = ControllerVersion.parse(line);
+            if (line.includes('Версия')) {
+                configData.controllerVersion = await ControllerVersion.parse(line);
+            }
+            break;
         }
         case '[Типы_приборов]': {
             if (line.includes('Тип_прибора: ')) {
-                configData.controllersList.push(ControllerList.parse(line));
+                await ControllersList.parse(line);
             }
+            break;
         }
         case '[Пульт]': {
-
+            //TODO parser for remoteControl
+            break;
+        }
+        case '[Приборы]': {
+            if (line.includes(',   Тип_прибора: ' && 'Версия: ')) {
+                await Controllers.chooseController(line, +line.split(',')[1].split(': ')[1]);
+            }
         }
     }
+    /*
         //TODO validate [group]
         if (line.includes(',   Тип_прибора: ' && ',  Версия: ')) {
             //TODO separator with 2 or 3 spaces via regExp
@@ -59,6 +71,8 @@ async function parseConfig() {
         if (line.includes('Считыватель: ')) {
             controllers[controllerIndex].reader = +line.split(': ')[1];
         }
+
+     */
     }).then(()=>{
         //controllers[0].showInfo();
         console.log(configData);
@@ -67,4 +81,5 @@ async function parseConfig() {
 
 parseConfig();
 
-//comment
+module.exports = configData;
+
