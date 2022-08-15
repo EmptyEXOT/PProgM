@@ -1,7 +1,8 @@
-const KDL = require('./KDL.js');
 const ControllerVersion = require('./parsers/ControllerVersion.js')
 const ControllersList = require('./parsers/ControllersList.js')
 const Controllers = require('./parsers/Controllers.js');
+
+const KDL = require('./parsers/controllers/KDL.js');
 
 let lineReader = require('line-reader');
 Promise = require('bluebird');
@@ -9,11 +10,13 @@ Promise = require('bluebird');
 let eachLine = Promise.promisify(lineReader.eachLine);
 const groupRegExp = /\[.*\]/;
 const configName = 'test.txt'
-let controllers = [];
 
-let flags = {
+global.flags = {
     group: undefined,
-    controller: undefined,
+    controller: {
+        name: undefined,
+        addr: undefined,
+    },
 }
 
 global.configData = {
@@ -48,8 +51,17 @@ async function parseConfig() {
         }
         case '[Приборы]': {
             if (line.includes(',   Тип_прибора: ' && 'Версия: ')) {
-                await Controllers.chooseController(line, +line.split(',')[1].split(': ')[1]);
+                switch (Controllers.chooseController(line)) {
+                    case 9: {
+                        configData.controllers.set(flags.controller.addr, new KDL(line));
+                        break
+                    }
+                }
+            } else switch (flags.controller.name) {
+                case 9: KDL.parse(line);
             }
+
+
         }
     }
     /*
@@ -71,11 +83,12 @@ async function parseConfig() {
         if (line.includes('Считыватель: ')) {
             controllers[controllerIndex].reader = +line.split(': ')[1];
         }
-
      */
     }).then(()=>{
         //controllers[0].showInfo();
         console.log(configData);
+        console.log(flags)
+        console.log(configData.controllers.get(1))
     })
 }
 
