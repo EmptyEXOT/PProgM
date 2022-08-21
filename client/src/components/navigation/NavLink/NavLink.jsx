@@ -1,8 +1,9 @@
 import React from 'react';
+import classes from './NavLink.module.css'
 
 const NavLink = ({children, ...props}) => {
     return (
-        <a href={props.href}>{children}</a>
+        <a className={classes.navLink} href={props.href}>{children}</a>
     );
 };
 
