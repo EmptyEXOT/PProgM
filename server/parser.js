@@ -72,7 +72,7 @@ async function parseConfig() {
     })
 }
 
-parseConfig();
+module.exports = parseConfig;
 
-module.exports = configData;
+
 
