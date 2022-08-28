@@ -1,43 +1,36 @@
 "use strict";
 Object.defineProperty(exports, "__esModule", { value: true });
 var Flags_1 = require("./LineCheckers/Flags");
+var LineParser_1 = require("./parsers/LineParser");
 var lineReader = require('line-reader');
-var Promise = require('bluebird');
-var ControllerConfig_1 = require("../ControllerConfig");
-var eachLine = Promise.promisify(lineReader.eachLine);
-var GroupNames;
-(function (GroupNames) {
-    GroupNames["CONTROLLER_VERSION"] = "[\u0412\u0435\u0440\u0441\u0438\u044F \u043F\u0443\u043B\u044C\u0442\u0430 C2000]";
-    GroupNames["CONTROLLER_TYPES"] = "[\u0422\u0438\u043F\u044B_\u043F\u0440\u0438\u0431\u043E\u0440\u043E\u0432]";
-})(GroupNames = exports.GroupNames || (exports.GroupNames = {}));
+// let Promise = require('bluebird');
+var ControllerConfig_1 = require("./ControllerConfig");
+// import {setTimeout} from "timers";
+// import {serialize} from "v8";
+// let eachLine = Promise.promisify(lineReader.eachLine)
 var Parser = /** @class */ (function () {
     function Parser() {
-        this.config = ControllerConfig_1.default.createConfig();
         this.flags = new Flags_1.default();
+        this.lineParser = new LineParser_1.default();
+        this.config = ControllerConfig_1.default.createConfig();
     }
     Parser.makeParser = function () {
         if (!this.parser) {
             this.parser = new Parser();
         }
+        console.log('parser has been created');
         return Parser.parser;
     };
     Parser.prototype.parseConfig = function () {
         var _this = this;
-        eachLine('test.txt', function (line) {
-            //if line contains /\[.*\]/ groupName will be changed
-            _this.flags.setFlag(line);
-            switch (_this.flags.groupName) {
-                case GroupNames.CONTROLLER_VERSION: {
-                    console.log(line);
-                    _this.config.parseVersion(line);
-                    break;
-                }
-                case GroupNames.CONTROLLER_TYPES: {
-                    break;
-                }
-            }
-        }).then(function () {
-            console.log(_this.config);
+        return new Promise(function (resolve) {
+            lineReader.eachLine('test.txt', function (line, last) {
+                //if line contains /\[.*\]/ groupName will be changed
+                _this.flags.setFlag(line);
+                _this.lineParser.parseLine(line, _this.flags.groupName, _this.config);
+                if (last)
+                    resolve(_this.config);
+            });
         });
     };
     return Parser;

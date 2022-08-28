@@ -1,5 +1,5 @@
 "use strict";
-Object.defineProperty(exports, "__esModule", { value: true });
+exports.__esModule = true;
 /*class ControllerConfig should implement singletone pattern for
 * protecting program from creating multiply instances of
 * configurations. Only one instance may be exist after app.post render
@@ -20,4 +20,4 @@ var ControllerConfig = /** @class */ (function () {
     };
     return ControllerConfig;
 }());
-exports.default = ControllerConfig;
+exports["default"] = ControllerConfig;

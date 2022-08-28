@@ -1,0 +1,10 @@
+{
+  "compilerOptions": {
+    "noLib": true,
+    "target": "ES2015"
+    },
+   "files": [
+     "node_modules/typescript/lib/lib.es6.d.ts",
+     "app.ts"
+   ]
+}

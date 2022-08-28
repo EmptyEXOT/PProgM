@@ -1,10 +1,15 @@
 import GroupSwitch from "./GroupSwitch";
+enum GroupNames {
+    CONTROLLER_VERSION = '[Версия пульта C2000]',
+    CONTROLLER_TYPES = '[Типы_приборов]',
+}
 
 export default class Flags {
-    public groupName: string | undefined;
+    public groupName: GroupNames;
     public setFlag(line: string) {
         if (GroupSwitch.groupSwitch(line)) {
-            this.groupName = line;
+            this.groupName = GroupSwitch.groupSwitch(line);
+            console.log('1')
         }
     }
 }

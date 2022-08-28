@@ -1,54 +1,52 @@
 import Flags from './LineCheckers/Flags';
+import LineParser from "./parsers/LineParser";
 
 const lineReader = require('line-reader');
-let Promise = require('bluebird');
-import ControllerConfig from '../ControllerConfig'
+// let Promise = require('bluebird');
+import ControllerConfig from './ControllerConfig'
+// import {setTimeout} from "timers";
+// import {serialize} from "v8";
 
-let eachLine = Promise.promisify(lineReader.eachLine)
-
-export enum GroupNames {
-    CONTROLLER_VERSION = '[Версия пульта C2000]',
-    CONTROLLER_TYPES = '[Типы_приборов]',
-}
+// let eachLine = Promise.promisify(lineReader.eachLine)
 
 export default class Parser {
     constructor() {
-        this.config = ControllerConfig.createConfig()
         this.flags = new Flags();
+        this.lineParser = new LineParser();
+        this.config = ControllerConfig.createConfig();
     }
 
+    private lineParser: LineParser
     private flags: Flags;
     private config: ControllerConfig;
 
     private static parser: Parser;
+
     public static makeParser() {
         if (!this.parser) {
             this.parser = new Parser();
         }
+        console.log('parser has been created')
         return Parser.parser;
     }
 
     public parseConfig() {
-        eachLine('test.txt', (line)=> {
-            //if line contains /\[.*\]/ groupName will be changed
-            this.flags.setFlag(line);
+        return new Promise(resolve => {
+            lineReader.eachLine('test.txt', (line, last) => {
 
-            switch (this.flags.groupName) {
-                case GroupNames.CONTROLLER_VERSION: {
-                    console.log(line);
-                    this.config.parseVersion(line);
-                    break;
-                }
-                case GroupNames.CONTROLLER_TYPES: {
-                    break;
-                }
-            }
+                //if line contains /\[.*\]/ groupName will be changed
+                this.flags.setFlag(line);
 
-        }).then(()=>{
-            console.log(this.config);
+                this.lineParser.parseLine(line, this.flags.groupName, this.config);
+
+                if (last) resolve(this.config);
+            })
         })
+
     }
 }
+
+
 
 
 

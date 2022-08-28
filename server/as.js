@@ -36,37 +36,16 @@ var __generator = (this && this.__generator) || function (thisArg, body) {
     }
 };
 Object.defineProperty(exports, "__esModule", { value: true });
-var express = require('express');
-var multer = require('multer');
-var Parser_1 = require("./parser2/Parser");
 var timers_1 = require("timers");
-var parseConfig = require('./parser.js');
-var app = express();
-app.use(multer({ dest: 'uploads' }).single('avatar'));
-app.get('/', function (req, res) {
-    res.send("\n    <form action=\"/parse\" method=\"post\" enctype=\"multipart/form-data\">\n        <input type=\"file\" name=\"avatar\" />\n        <input type=\"submit\" name=\"send\" /> \n    </form>\n    ");
-});
-function hello() {
-    return new Promise(function (resolve) {
-        timers_1.setTimeout(function () {
-            resolve('hello');
-        }, 1000);
+function fnc() {
+    return __awaiter(this, void 0, void 0, function () {
+        return __generator(this, function (_a) {
+            return [2 /*return*/, new Promise((function (resolve, reject) {
+                    timers_1.setTimeout(function () {
+                        resolve('5');
+                    }, 10000);
+                }))];
+        });
     });
 }
-app.post('/parse', function (req, res) { return __awaiter(void 0, void 0, void 0, function () {
-    var parser, result;
-    return __generator(this, function (_a) {
-        switch (_a.label) {
-            case 0:
-                parser = Parser_1.default.makeParser();
-                return [4 /*yield*/, parser.parseConfig()];
-            case 1:
-                result = _a.sent();
-                console.log(result);
-                return [2 /*return*/, res.send(result)];
-        }
-    });
-}); });
-app.listen(3000, '127.0.0.1', function () {
-    console.log('server started');
-});
+exports.default = fnc;

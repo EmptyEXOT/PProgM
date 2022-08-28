@@ -35,38 +35,42 @@ var __generator = (this && this.__generator) || function (thisArg, body) {
         if (op[0] & 5) throw op[1]; return { value: op[0] ? op[1] : void 0, done: true };
     }
 };
-Object.defineProperty(exports, "__esModule", { value: true });
-var express = require('express');
-var multer = require('multer');
-var Parser_1 = require("./parser2/Parser");
-var timers_1 = require("timers");
-var parseConfig = require('./parser.js');
-var app = express();
-app.use(multer({ dest: 'uploads' }).single('avatar'));
-app.get('/', function (req, res) {
-    res.send("\n    <form action=\"/parse\" method=\"post\" enctype=\"multipart/form-data\">\n        <input type=\"file\" name=\"avatar\" />\n        <input type=\"submit\" name=\"send\" /> \n    </form>\n    ");
-});
-function hello() {
-    return new Promise(function (resolve) {
-        timers_1.setTimeout(function () {
-            resolve('hello');
-        }, 1000);
-    });
-}
-app.post('/parse', function (req, res) { return __awaiter(void 0, void 0, void 0, function () {
-    var parser, result;
-    return __generator(this, function (_a) {
-        switch (_a.label) {
-            case 0:
-                parser = Parser_1.default.makeParser();
-                return [4 /*yield*/, parser.parseConfig()];
-            case 1:
-                result = _a.sent();
-                console.log(result);
-                return [2 /*return*/, res.send(result)];
+exports.__esModule = true;
+var Flags_1 = require("./LineCheckers/Flags");
+var LineParser_1 = require("./parsers/LineParser");
+var lineReader = require('line-reader');
+var Promise = require('bluebird');
+var eachLine = Promise.promisify(lineReader.eachLine);
+var Parser = /** @class */ (function () {
+    function Parser(config) {
+        this.flags = new Flags_1["default"]();
+        this.lineParser = new LineParser_1["default"]();
+        this.config = config;
+    }
+    Parser.makeParser = function (config) {
+        if (!this.parser) {
+            this.parser = new Parser(config);
         }
-    });
-}); });
-app.listen(3000, '127.0.0.1', function () {
-    console.log('server started');
-});
+        return Parser.parser;
+    };
+    Parser.prototype.parseConfig = function () {
+        var _this = this;
+        eachLine('test.txt', function (line, last, cb) { return __awaiter(_this, void 0, void 0, function () {
+            return __generator(this, function (_a) {
+                //if line contains /\[.*\]/ groupName will be changed
+                this.flags.setFlag(line);
+                this.lineParser.parseLine(line, this.flags.groupName, this.config);
+                return [2 /*return*/];
+            });
+        }); }).then(function () { return __awaiter(_this, void 0, void 0, function () {
+            var _this = this;
+            return __generator(this, function (_a) {
+                return [2 /*return*/, new Promise(function (resolve, reject) {
+                        resolve(_this.config);
+                    })];
+            });
+        }); });
+    };
+    return Parser;
+}());
+exports["default"] = Parser;
