@@ -1,13 +1,26 @@
+import Flags from './LineCheckers/Flags';
+
 const lineReader = require('line-reader');
 let Promise = require('bluebird');
+import ControllerConfig from '../ControllerConfig'
 
 let eachLine = Promise.promisify(lineReader.eachLine)
 
-const configName = '../test2.txt'
+export enum GroupNames {
+    CONTROLLER_VERSION = '[Версия пульта C2000]',
+    CONTROLLER_TYPES = '[Типы_приборов]',
+}
 
 export default class Parser {
-    private static parser: Parser;
+    constructor() {
+        this.config = ControllerConfig.createConfig()
+        this.flags = new Flags();
+    }
 
+    private flags: Flags;
+    private config: ControllerConfig;
+
+    private static parser: Parser;
     public static makeParser() {
         if (!this.parser) {
             this.parser = new Parser();
@@ -16,11 +29,23 @@ export default class Parser {
     }
 
     public parseConfig() {
-        eachLine('test2.txt', (line, last)=> {
-            console.log(line);
-            if (last) console.log('finished');
+        eachLine('test.txt', (line)=> {
+            //if line contains /\[.*\]/ groupName will be changed
+            this.flags.setFlag(line);
+
+            switch (this.flags.groupName) {
+                case GroupNames.CONTROLLER_VERSION: {
+                    console.log(line);
+                    this.config.parseVersion(line);
+                    break;
+                }
+                case GroupNames.CONTROLLER_TYPES: {
+                    break;
+                }
+            }
+
         }).then(()=>{
-            console.log('promise')
+            console.log(this.config);
         })
     }
 }

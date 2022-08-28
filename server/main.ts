@@ -17,6 +17,11 @@ app.get('/', (req, res) => {
     `);
 })
 
+app.use('/parse', (req, res, next) => {
+    next();
+})
+
+
 app.post('/parse', async (req, res) => {
     const parser = Parser.makeParser();
     parser.parseConfig()

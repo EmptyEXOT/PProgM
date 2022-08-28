@@ -35,7 +35,7 @@ var __generator = (this && this.__generator) || function (thisArg, body) {
         if (op[0] & 5) throw op[1]; return { value: op[0] ? op[1] : void 0, done: true };
     }
 };
-exports.__esModule = true;
+Object.defineProperty(exports, "__esModule", { value: true });
 var express = require('express');
 var multer = require('multer');
 var Parser_1 = require("./parser2/Parser");
@@ -45,10 +45,13 @@ app.use(multer({ dest: 'uploads' }).single('avatar'));
 app.get('/', function (req, res) {
     res.send("\n    <form action=\"/parse\" method=\"post\" enctype=\"multipart/form-data\">\n        <input type=\"file\" name=\"avatar\" />\n        <input type=\"submit\" name=\"send\" /> \n    </form>\n    ");
 });
+app.use('/parse', function (req, res, next) {
+    next();
+});
 app.post('/parse', function (req, res) { return __awaiter(void 0, void 0, void 0, function () {
     var parser;
     return __generator(this, function (_a) {
-        parser = Parser_1["default"].makeParser();
+        parser = Parser_1.default.makeParser();
         parser.parseConfig();
         res.send('successfully');
         return [2 /*return*/];
