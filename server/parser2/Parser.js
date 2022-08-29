@@ -18,7 +18,6 @@ var Parser = /** @class */ (function () {
         if (!this.parser) {
             this.parser = new Parser();
         }
-        console.log('parser has been created');
         return Parser.parser;
     };
     Parser.prototype.parseConfig = function () {

@@ -12,7 +12,6 @@ var Flags = /** @class */ (function () {
     Flags.prototype.setFlag = function (line) {
         if (GroupSwitch_1.default.groupSwitch(line)) {
             this.groupName = GroupSwitch_1.default.groupSwitch(line);
-            console.log('1');
         }
     };
     return Flags;

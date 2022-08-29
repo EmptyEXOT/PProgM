@@ -6,8 +6,10 @@
 *       const config = new Config(getting name via multer package)
 *   })
  */
-class Config {
-    constructor(configName = configName) {
+var Config = /** @class */ (function () {
+    function Config(configName) {
+        if (configName === void 0) { configName = configName; }
         this.configName = configName;
     }
-}
+    return Config;
+}());

@@ -9,7 +9,6 @@ export default class Flags {
     public setFlag(line: string) {
         if (GroupSwitch.groupSwitch(line)) {
             this.groupName = GroupSwitch.groupSwitch(line);
-            console.log('1')
         }
     }
 }

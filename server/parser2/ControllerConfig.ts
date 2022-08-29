@@ -16,6 +16,7 @@ export default class ControllerConfig implements IControllerConfig {
         if (!this.config) {
             this.config = new ControllerConfig();
         }
+        //TODO delete log in prod
         console.log('config has been created')
         return this.config;
     }
@@ -24,7 +25,6 @@ export default class ControllerConfig implements IControllerConfig {
 
     public parseVersion(line: string) {
         if (line.includes('Версия: ')) this.controllerVersion = +line.split(': ')[1];
-        console.log('2')
     }
 
 }
