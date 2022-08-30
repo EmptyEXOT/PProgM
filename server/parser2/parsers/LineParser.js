@@ -11,7 +11,7 @@ var LineParser = /** @class */ (function () {
     LineParser.prototype.parseLine = function (line, groupName, config) {
         switch (groupName) {
             case GroupNames.CONTROLLER_VERSION: {
-                config.parseVersion(line);
+                this.config(line, config);
                 break;
             }
         }

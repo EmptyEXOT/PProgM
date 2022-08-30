@@ -3,8 +3,6 @@ import ControllerConfig from "./parser2/ControllerConfig";
 const express = require('express');
 const multer = require('multer');
 import Parser from "./parser2/Parser";
-import fnc from "./as";
-import as from "./as";
 import {setTimeout} from "timers";
 
 const parseConfig = require('./parser.js')

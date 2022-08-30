@@ -10,7 +10,11 @@ interface IControllerConfig {
 
 export default class ControllerConfig implements IControllerConfig {
     //singletone pattern implementation
-    private static config: ControllerConfig;
+    static config: ControllerConfig;
+
+    public get config(): ControllerConfig {
+        return this.config;
+    }
 
     public static createConfig() {
         if (!this.config) {
@@ -21,10 +25,9 @@ export default class ControllerConfig implements IControllerConfig {
         return this.config;
     }
 
-    private controllerVersion: number
+    public controllerVersion: number
 
     public parseVersion(line: string) {
-        if (line.includes('Версия: ')) this.controllerVersion = +line.split(': ')[1];
     }
 
 }

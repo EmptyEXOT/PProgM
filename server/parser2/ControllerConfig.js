@@ -8,6 +8,13 @@ Object.defineProperty(exports, "__esModule", { value: true });
 var ControllerConfig = /** @class */ (function () {
     function ControllerConfig() {
     }
+    Object.defineProperty(ControllerConfig.prototype, "config", {
+        get: function () {
+            return this.config;
+        },
+        enumerable: false,
+        configurable: true
+    });
     ControllerConfig.createConfig = function () {
         if (!this.config) {
             this.config = new ControllerConfig();
@@ -17,8 +24,6 @@ var ControllerConfig = /** @class */ (function () {
         return this.config;
     };
     ControllerConfig.prototype.parseVersion = function (line) {
-        if (line.includes('Версия: '))
-            this.controllerVersion = +line.split(': ')[1];
     };
     return ControllerConfig;
 }());
