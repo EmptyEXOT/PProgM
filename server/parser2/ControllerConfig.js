@@ -12,7 +12,7 @@ var ControllerConfig = /** @class */ (function () {
         get: function () {
             return this.config;
         },
-        enumerable: false,
+        enumerable: true,
         configurable: true
     });
     ControllerConfig.createConfig = function () {

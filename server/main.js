@@ -48,7 +48,7 @@ app.get('/', function (req, res) {
 });
 function hello() {
     return new Promise(function (resolve) {
-        (0, timers_1.setTimeout)(function () {
+        timers_1.setTimeout(function () {
             resolve('hello');
         }, 1000);
     });
