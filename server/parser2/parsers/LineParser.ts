@@ -14,7 +14,7 @@ export default class LineParser {
     public parseLine(line: string, groupName: GroupNames, config: ControllerConfig) {
             switch (groupName) {
                 case GroupNames.CONTROLLER_VERSION: {
-                    this.config(line, config);
+                    ControllerVersion.parse(line, config);
                     break;
                 }
             }

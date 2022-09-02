@@ -1,5 +1,6 @@
 "use strict";
 Object.defineProperty(exports, "__esModule", { value: true });
+var ControllerVersion_1 = require("./ControllerVersion");
 var GroupNames;
 (function (GroupNames) {
     GroupNames["CONTROLLER_VERSION"] = "[\u0412\u0435\u0440\u0441\u0438\u044F \u043F\u0443\u043B\u044C\u0442\u0430 C2000]";
@@ -11,7 +12,7 @@ var LineParser = /** @class */ (function () {
     LineParser.prototype.parseLine = function (line, groupName, config) {
         switch (groupName) {
             case GroupNames.CONTROLLER_VERSION: {
-                this.config(line, config);
+                ControllerVersion_1.default.parse(line, config);
                 break;
             }
         }
