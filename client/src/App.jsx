@@ -1,12 +1,21 @@
 import React from 'react';
-import NavBar from "./components/navigation/NavBar/NavBar";
-import classes from './globals/globals.module.css'
+import {BrowserRouter, Link, Outlet, Route, Routes} from 'react-router-dom';
 
 const App = () => {
     return (
-        <div>
-            <NavBar />
-        </div>
+        <>
+            <h1>Bookkeeper</h1>
+            <nav
+                style={{
+                    borderBottom: "solid 1px",
+                    paddingBottom: "1rem",
+                }}
+            >
+                <Link to="/home">Home</Link> |{" "}
+                <Link to="/pprog">PProg</Link>
+            </nav>
+            <Outlet />
+        </>
     );
 };
 

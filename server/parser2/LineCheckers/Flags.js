@@ -1,5 +1,5 @@
 "use strict";
-Object.defineProperty(exports, "__esModule", { value: true });
+exports.__esModule = true;
 var GroupSwitch_1 = require("./GroupSwitch");
 var GroupNames;
 (function (GroupNames) {
@@ -10,10 +10,10 @@ var Flags = /** @class */ (function () {
     function Flags() {
     }
     Flags.prototype.setFlag = function (line) {
-        if (GroupSwitch_1.default.groupSwitch(line)) {
-            this.groupName = GroupSwitch_1.default.groupSwitch(line);
+        if (GroupSwitch_1["default"].groupSwitch(line)) {
+            this.groupName = GroupSwitch_1["default"].groupSwitch(line);
         }
     };
     return Flags;
 }());
-exports.default = Flags;
+exports["default"] = Flags;

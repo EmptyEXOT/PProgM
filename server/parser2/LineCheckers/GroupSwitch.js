@@ -1,5 +1,5 @@
 "use strict";
-Object.defineProperty(exports, "__esModule", { value: true });
+exports.__esModule = true;
 var GroupNames;
 (function (GroupNames) {
     GroupNames["CONTROLLER_VERSION"] = "[\u0412\u0435\u0440\u0441\u0438\u044F \u043F\u0443\u043B\u044C\u0442\u0430 C2000]";
@@ -17,4 +17,4 @@ var GroupSwitch = /** @class */ (function () {
     GroupSwitch.groupRegExp = /\[.*\]/;
     return GroupSwitch;
 }());
-exports.default = GroupSwitch;
+exports["default"] = GroupSwitch;

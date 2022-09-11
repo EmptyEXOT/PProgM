@@ -1,5 +1,5 @@
 "use strict";
-Object.defineProperty(exports, "__esModule", { value: true });
+exports.__esModule = true;
 var ControllerVersion = /** @class */ (function () {
     function ControllerVersion() {
     }
@@ -9,4 +9,4 @@ var ControllerVersion = /** @class */ (function () {
     };
     return ControllerVersion;
 }());
-exports.default = ControllerVersion;
+exports["default"] = ControllerVersion;

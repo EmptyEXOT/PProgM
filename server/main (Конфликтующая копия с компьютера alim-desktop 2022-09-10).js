@@ -35,27 +35,28 @@ var __generator = (this && this.__generator) || function (thisArg, body) {
         if (op[0] & 5) throw op[1]; return { value: op[0] ? op[1] : void 0, done: true };
     }
 };
-exports.__esModule = true;
+Object.defineProperty(exports, "__esModule", { value: true });
 var express = require('express');
-//const multer = require('multer');
+var multer = require('multer');
 var Parser_1 = require("./parser2/Parser");
+var parseConfig = require('./parser.js');
+var path = require('path');
 var app = express();
-//required for file loading
-//app.use(multer({dest: 'uploads'}).single('avatar'));
+app.use(multer({ dest: 'uploads' }).single('avatar'));
 app.get('/main', function (req, res) {
     res.send("\n    <form action=\"/parse\" method=\"post\" enctype=\"multipart/form-data\">\n        <input type=\"file\" name=\"avatar\" />\n        <input type=\"submit\" name=\"send\" /> \n    </form>\n    ");
 });
-app.get('/api/parse', function (req, res) { return __awaiter(void 0, void 0, void 0, function () {
+app.post('/parse', function (req, res) { return __awaiter(void 0, void 0, void 0, function () {
     var parser, result;
     return __generator(this, function (_a) {
         switch (_a.label) {
             case 0:
-                parser = Parser_1["default"].makeParser();
+                parser = Parser_1.default.makeParser();
                 return [4 /*yield*/, parser.parseConfig()];
             case 1:
                 result = _a.sent();
                 console.log(result);
-                res.send(result);
+                res.sendFile(path.resolve('../client/build/index.html'));
                 return [2 /*return*/];
         }
     });

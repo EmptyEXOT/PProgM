@@ -1,5 +1,5 @@
 "use strict";
-Object.defineProperty(exports, "__esModule", { value: true });
+exports.__esModule = true;
 var Flags_1 = require("./LineCheckers/Flags");
 var LineParser_1 = require("./parsers/LineParser");
 var lineReader = require('line-reader');
@@ -10,9 +10,9 @@ var ControllerConfig_1 = require("./ControllerConfig");
 // let eachLine = Promise.promisify(lineReader.eachLine)
 var Parser = /** @class */ (function () {
     function Parser() {
-        this.flags = new Flags_1.default();
-        this.lineParser = new LineParser_1.default();
-        this.config = ControllerConfig_1.default.createConfig();
+        this.flags = new Flags_1["default"]();
+        this.lineParser = new LineParser_1["default"]();
+        this.config = ControllerConfig_1["default"].createConfig();
     }
     Parser.makeParser = function () {
         if (!this.parser) {
@@ -34,4 +34,4 @@ var Parser = /** @class */ (function () {
     };
     return Parser;
 }());
-exports.default = Parser;
+exports["default"] = Parser;
