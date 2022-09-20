@@ -1,0 +1,18 @@
+.pprogContainer {
+    display: grid;
+    grid-template-columns: 15vw 60vw 25vw;
+    grid-template-areas: 'sidebar main main';
+    grid-area: main;
+}
+
+.pprogSidebar {
+    grid-area: sidebar;
+    background-color: teal;
+}
+
+.pprogWorkspace {
+    grid-area: main;
+    background-color: cyan;
+}
+
+

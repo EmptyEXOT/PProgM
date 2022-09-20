@@ -1,0 +1,7 @@
+.pages {
+    flex-grow: 5;
+    display: flex;
+    align-items: center;
+    grid-area: header-nav;
+    padding: 0
+}

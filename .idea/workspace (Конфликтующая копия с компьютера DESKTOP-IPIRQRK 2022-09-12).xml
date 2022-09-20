@@ -1,0 +1,168 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="BranchesTreeState">
+    <expand>
+      <path>
+        <item name="ROOT" type="e8cecc67:BranchNodeDescriptor" />
+        <item name="LOCAL_ROOT" type="e8cecc67:BranchNodeDescriptor" />
+      </path>
+      <path>
+        <item name="ROOT" type="e8cecc67:BranchNodeDescriptor" />
+        <item name="REMOTE_ROOT" type="e8cecc67:BranchNodeDescriptor" />
+      </path>
+      <path>
+        <item name="ROOT" type="e8cecc67:BranchNodeDescriptor" />
+        <item name="REMOTE_ROOT" type="e8cecc67:BranchNodeDescriptor" />
+        <item name="GROUP_NODE:origin" type="e8cecc67:BranchNodeDescriptor" />
+      </path>
+    </expand>
+    <select />
+  </component>
+  <component name="ChangeListManager">
+    <list default="true" id="4cbe31b0-6e67-47fe-816b-a22572d083fa" name="Default Changelist" comment="">
+      <change beforePath="$PROJECT_DIR$/client/package-lock.json" beforeDir="false" afterPath="$PROJECT_DIR$/client/package-lock.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/client/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/client/package.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/client/src/App.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/client/src/App.jsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/server/main.js" beforeDir="false" afterPath="$PROJECT_DIR$/server/main.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/server/main.ts" beforeDir="false" afterPath="$PROJECT_DIR$/server/main.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/server/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/server/package.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/server/parser2/ControllerConfig.js" beforeDir="false" afterPath="$PROJECT_DIR$/server/parser2/ControllerConfig.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/server/parser2/ControllerConfig.ts" beforeDir="false" afterPath="$PROJECT_DIR$/server/parser2/ControllerConfig.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/server/parser2/LineCheckers/Flags.js" beforeDir="false" afterPath="$PROJECT_DIR$/server/parser2/LineCheckers/Flags.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/server/parser2/LineCheckers/GroupSwitch.js" beforeDir="false" afterPath="$PROJECT_DIR$/server/parser2/LineCheckers/GroupSwitch.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/server/parser2/Parser.js" beforeDir="false" afterPath="$PROJECT_DIR$/server/parser2/Parser.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/server/parser2/parsers/ControllerVersion.js" beforeDir="false" afterPath="$PROJECT_DIR$/server/parser2/parsers/ControllerVersion.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/server/parser2/parsers/ControllerVersion.ts" beforeDir="false" afterPath="$PROJECT_DIR$/server/parser2/parsers/ControllerVersion.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/server/parser2/parsers/LineParser.js" beforeDir="false" afterPath="$PROJECT_DIR$/server/parser2/parsers/LineParser.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/server/parser2/parsers/LineParser.ts" beforeDir="false" afterPath="$PROJECT_DIR$/server/parser2/parsers/LineParser.ts" afterDir="false" />
+    </list>
+    <option name="SHOW_DIALOG" value="false" />
+    <option name="HIGHLIGHT_CONFLICTS" value="true" />
+    <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
+    <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="FileTemplateManagerImpl">
+    <option name="RECENT_TEMPLATES">
+      <list>
+        <option value="CSS File" />
+        <option value="TypeScript File" />
+      </list>
+    </option>
+  </component>
+  <component name="Git.Settings">
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+  </component>
+  <component name="JsbtTreeLayoutManager">
+    <layout place="tools.popupGrunt">
+      <scroll-view-position x="0" y="0" />
+    </layout>
+  </component>
+  <component name="MarkdownSettingsMigration">
+    <option name="stateVersion" value="1" />
+  </component>
+  <component name="ProjectId" id="2D3jsUu7gFoNLHL1MmJABT6REz0" />
+  <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
+  <component name="ProjectViewState">
+    <option name="hideEmptyMiddlePackages" value="true" />
+    <option name="showLibraryContents" value="true" />
+  </component>
+  <component name="PropertiesComponent">
+    <property name="WebServerToolWindowFactoryState" value="false" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
+    <property name="ts.external.directory.path" value="D:\WebStorm 2020.1\plugins\JavaScriptLanguage\jsLanguageServicesImpl\external" />
+  </component>
+  <component name="RecentsManager">
+    <key name="MoveFile.RECENT_KEYS">
+      <recent name="D:\Dropbox\PPropgM\client\public" />
+      <recent name="D:\Dropbox\PPropgM\server" />
+      <recent name="C:\Users\PC\Dropbox\PPropgM\server\parser2" />
+      <recent name="D:\Dropbox\PPropgM\server\parser2" />
+      <recent name="D:\Dropbox\PPropgM\client\src\components\navigation\NavLink" />
+    </key>
+  </component>
+  <component name="SpellCheckerSettings" BundledDictionaries="0" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" Dictionaries="0" CorrectionsLimit="5" DefaultDictionary="application-level" UseSingleDictionary="true" />
+  <component name="SvnConfiguration">
+    <configuration />
+  </component>
+  <component name="TaskManager">
+    <task active="true" id="Default" summary="Default task">
+      <changelist id="4cbe31b0-6e67-47fe-816b-a22572d083fa" name="Default Changelist" comment="" />
+      <created>1659934868497</created>
+      <option name="number" value="Default" />
+      <option name="presentableId" value="Default" />
+      <updated>1659934868497</updated>
+      <workItem from="1659934869694" duration="1672000" />
+      <workItem from="1659966694671" duration="7062000" />
+      <workItem from="1660030723987" duration="1015000" />
+      <workItem from="1660103418128" duration="784000" />
+      <workItem from="1660128137915" duration="4808000" />
+      <workItem from="1660390560986" duration="9299000" />
+      <workItem from="1660463150498" duration="16335000" />
+      <workItem from="1660548570145" duration="1357000" />
+      <workItem from="1660671560224" duration="814000" />
+      <workItem from="1660681815473" duration="314000" />
+      <workItem from="1660741808092" duration="522000" />
+      <workItem from="1660998228579" duration="4121000" />
+      <workItem from="1661065614932" duration="2059000" />
+      <workItem from="1661081822164" duration="154000" />
+      <workItem from="1661081994044" duration="684000" />
+      <workItem from="1661094737371" duration="686000" />
+      <workItem from="1661155938537" duration="7985000" />
+      <workItem from="1661251532512" duration="11131000" />
+      <workItem from="1661537420213" duration="37000" />
+      <workItem from="1661537480675" duration="6427000" />
+      <workItem from="1661673140335" duration="14513000" />
+      <workItem from="1661752074641" duration="2497000" />
+      <workItem from="1661796665672" duration="665000" />
+      <workItem from="1661844072650" duration="1770000" />
+      <workItem from="1662206393446" duration="3081000" />
+      <workItem from="1662441176540" duration="2412000" />
+      <workItem from="1662728911159" duration="2902000" />
+      <workItem from="1662934211005" duration="30000" />
+      <workItem from="1662934943292" duration="35000" />
+    </task>
+    <servers />
+  </component>
+  <component name="TypeScriptGeneratedFilesManager">
+    <option name="version" value="2" />
+    <option name="exactExcludedFiles">
+      <list>
+        <option value="$PROJECT_DIR$/server/parser2/Parser.js" />
+        <option value="$PROJECT_DIR$/server/main.js" />
+        <option value="$PROJECT_DIR$/server/parser2/LineCheckers/GroupSwitch.js" />
+        <option value="$PROJECT_DIR$/server/parser2/LineCheckers/Flags.js" />
+        <option value="$PROJECT_DIR$/server/parser2/parsers/LineParser.js" />
+        <option value="$PROJECT_DIR$/server/parser2/parsers/ControllerVersion.js" />
+        <option value="$PROJECT_DIR$/server/parser2/ControllerConfig.js" />
+        <option value="$PROJECT_DIR$/server/parser2/parsers/ControllerTypes.js" />
+        <option value="$PROJECT_DIR$/client/src/hooks/hooks.js" />
+      </list>
+    </option>
+  </component>
+  <component name="Vcs.Log.Tabs.Properties">
+    <option name="TAB_STATES">
+      <map>
+        <entry key="MAIN">
+          <value>
+            <State />
+          </value>
+        </entry>
+      </map>
+    </option>
+    <option name="oldMeFiltersMigrated" value="true" />
+  </component>
+  <component name="WindowStateProjectService">
+    <state x="358" y="200" key="#com.intellij.refactoring.rename.AutomaticRenamingDialog" timestamp="1662743960877">
+      <screen x="0" y="0" width="1280" height="680" />
+    </state>
+    <state x="358" y="200" key="#com.intellij.refactoring.rename.AutomaticRenamingDialog/0.0.1280.680@0.0.1280.680" timestamp="1662743960877" />
+    <state x="421" y="96" key="FileChooserDialogImpl" timestamp="1662729063327">
+      <screen x="0" y="0" width="1280" height="680" />
+    </state>
+    <state x="421" y="96" key="FileChooserDialogImpl/0.0.1280.680@0.0.1280.680" timestamp="1662729063327" />
+    <state x="303" y="1" width="672" height="678" key="search.everywhere.popup" timestamp="1662745373780">
+      <screen x="0" y="0" width="1280" height="680" />
+    </state>
+    <state x="303" y="1" width="672" height="678" key="search.everywhere.popup/0.0.1280.680@0.0.1280.680" timestamp="1662745373780" />
+  </component>
+</project>

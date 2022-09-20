@@ -1,0 +1,12 @@
+.settings {
+    display: flex;
+    align-items: center;
+    padding: 0 1vw;
+    height: 100%;
+    text-decoration: none;
+    color: black;
+}
+
+.settings:hover {
+    background-color: rgba(0, 0, 0, 0.2);
+}

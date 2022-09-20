@@ -1,0 +1,21 @@
+*,
+*::after,
+*::before {
+    box-sizing: border-box;
+}
+
+.main {
+    display: grid;
+    grid-template-columns: 15vw 60vw 25vw;
+    grid-template-rows: 7vh 93vh;
+    grid-template-areas:
+            'header-logo header-nav header-settings'
+            'main main main';
+    background-color: aliceblue;
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    margin: 0
+}
