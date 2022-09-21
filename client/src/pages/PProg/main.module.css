@@ -1,13 +1,13 @@
 .pprogContainer {
     display: grid;
     grid-template-columns: 15vw 60vw 25vw;
+    grid-template-rows: 93vh;
     grid-template-areas: 'sidebar main main';
     grid-area: main;
 }
 
 .pprogSidebar {
-    grid-area: sidebar;
-    background-color: teal;
+
 }
 
 .pprogWorkspace {

@@ -1,0 +1,32 @@
+.pprogOptions {
+    display: flex;
+    justify-content: space-between;
+    flex-direction: row;
+    background-color: aliceblue;
+    border: black;
+
+}
+
+.pprogOptions:nth-child(odd) {
+    background-color: white;
+}
+.pprogOptions:hover {
+    background-color: rgba(255, 255, 255, 0.5);
+}
+
+.pprogOptions:focus {
+    background-color: rgba(255, 255, 255, 0.3);
+}
+
+.optionsLogo {
+    margin: auto 0;
+    align-items: center;
+    justify-content: flex-end;
+}
+
+.optionsName {
+    display: flex;
+    align-items: center;
+    flex-grow: 3;
+}
+
